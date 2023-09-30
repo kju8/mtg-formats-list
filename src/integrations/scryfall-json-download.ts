@@ -1,36 +1,33 @@
-import type {
-  AstroConfig,
-  AstroIntegration,
-  AstroIntegrationLogger,
-} from "astro";
-import axios from "axios";
-import type { IScryfallBulkData } from "scryfall-types";
-import path from "path";
-import fs from "fs";
-import { fileURLToPath } from "url";
+import type { AstroConfig, AstroIntegration, AstroIntegrationLogger } from 'astro';
+import axios from 'axios';
+import type { IScryfallBulkData } from 'scryfall-types';
+import path from 'path';
+import fs from 'fs';
+import { fileURLToPath } from 'url';
 
 export default (): AstroIntegration => ({
-  name: "scryfall-download-json",
+  name: 'scryfall-download-json',
   hooks: {
-    "astro:config:done": async (_options: {
-      config: AstroConfig;
-      logger: AstroIntegrationLogger;
-    }) => {
-      // eslint-disable-next-line @typescript-eslint/no-unused-vars
+    'astro:config:done': async (_options: { config: AstroConfig; logger: AstroIntegrationLogger }) => {
       const { config: _, logger } = _options;
-      logger.info("Integration ready.");
+      const _dir = path.join(path.dirname(fileURLToPath(import.meta.url)), '../../raw/');
+
+      try {
+        if (!fs.existsSync(_dir)) {
+          logger.info(`Cards Dir not exist (Path: "${_dir}")`);
+          fs.mkdirSync(_dir);
+        }
+      } catch (err) {
+        logger.error(`Card Dir Exists error: ${err}`);
+      }
+
+      logger.info('Integration ready.');
       const { data } = await axios.get<{
         object: string;
         has_more: boolean;
         data: IScryfallBulkData[];
-      }>("https://api.scryfall.com/bulk-data");
-      const url = new URL(
-        data.data.find((e) => e.type === "oracle_cards")?.download_uri || "",
-      );
-      const _dir = path.join(
-        path.dirname(fileURLToPath(import.meta.url)),
-        "../../raw/",
-      );
+      }>('https://api.scryfall.com/bulk-data');
+      const url = new URL(data.data.find((e) => e.type === 'oracle_cards')?.download_uri || '');
       const _path = path.join(_dir, path.parse(url.pathname).base);
 
       try {
@@ -38,11 +35,13 @@ export default (): AstroIntegration => ({
           logger.info(`Cards Json exist (Path: "${_path}")`);
           return;
         }
+      } catch (err) {
+        logger.error(`Card JSON Exists error: ${err}`);
+      }
 
+      try {
         logger.info(`Cards Json Delete ready`);
-        const oldData = fs
-          .readdirSync(_dir)
-          .find((e) => /^oracle-cards-[0-9]*\.json/.exec(e) !== null);
+        const oldData = fs.readdirSync(_dir).find((e) => /^oracle-cards-[0-9]*\.json/.exec(e) !== null);
         if (oldData) fs.unlinkSync(path.join(_dir, oldData));
 
         logger.info(`Cards Json Download ready`);
@@ -56,6 +55,6 @@ export default (): AstroIntegration => ({
       } catch (err) {
         logger.error(`Card JSON error: ${err}`);
       }
-    },
-  },
+    }
+  }
 });
