@@ -1,0 +1,13 @@
+---
+import Header from './Header.astro';
+import BodyLayout from './BodyLayout.astro';
+import '../style/base.css';
+import 'mana-font/css/mana.css';
+const { title, titleJp } = Astro.props.frontmatter || Astro.props;
+---
+
+<!doctype html>
+<html lang="ja">
+  <Header title={title} />
+  <BodyLayout title={title} titleJp={titleJp}><slot /></BodyLayout>
+</html>

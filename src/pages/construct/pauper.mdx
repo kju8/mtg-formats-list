@@ -1,0 +1,84 @@
+---
+layout: ../../layouts/Layout.astro
+title: Pauper
+titleJp: パウパー
+---
+
+import CardName from '../../components/cardName.vue';
+import Card from '../../components/Card.astro';
+import OXCard from '../../components/OXCard.astro';
+import AreaIcon from '~icons/iconoir/area-search';
+import CardsIcon from '~icons/mdi/cards-outline';
+import PlusIcon from '~icons/mdi/card-plus-outline';
+import PeopleIcon from '~icons/ic/sharp-people-outline';
+import HeartIcon from '~icons/material-symbols/favorite-outline'
+import CircleIcon from '~icons/mdi/circle-outline';
+
+<div class="flex gap-2 m-2 flex-wrap justify-center">
+  <Card title="カードプール" class="flex-none basis-80 xl:basis-96">
+    <AreaIcon slot="img" />
+    紙とMOにおいてコモンとして収録されたカード
+  </Card>
+  <Card title="デッキ枚数" class="flex-none basis-80 xl:basis-96">
+    <CardsIcon slot="img" />
+    60枚以上
+  </Card>
+  <Card title="サイドボード枚数" class="flex-none basis-80 xl:basis-96">
+    <PlusIcon slot="img" />
+    15枚以下
+  </Card>
+  <Card title="プレイ人数" class="flex-none basis-80 xl:basis-96">
+    <PeopleIcon slot="img" />
+    2名
+  </Card>
+  <Card title="開始ライフ" class="flex-none basis-80 xl:basis-96">
+    <HeartIcon slot="img" />
+    20点
+  </Card>
+  <OXCard title="プレイ可能環境" class="flex-none basis-80 xl:basis-96" list={[
+		{name:"Paper", value: "triangle"},
+		{name:"Magic Online", value: true},
+		{name:"Magic Arena", value: false}
+	]}>
+    <CircleIcon slot="img"/>
+  </OXCard>
+</div>
+
+## 概要
+
+紙のカードとMagic Onlineのいずれかのセットでコモンとして収録されたカードが使用できるフォーマット。
+
+### 禁止カード (2023/09/14現在)
+
+<div class="three-column-list">
+	- <CardName name="Aarakocra Sneak" nameJp="アーラコクラの隠密" />
+	- <CardName name="Arcum's Astrolabe" nameJp="アーカムの天測儀" />
+	- <CardName name="Atog" nameJp="エイトグ" />
+	- <CardName name="Bonder's Ornament" nameJp="眷者の装飾品" />
+	- <CardName name="Chatterstorm" nameJp="騒鳴の嵐" />
+	- <CardName name="Cloud of Faeries" nameJp="フェアリーの大群" />
+	- <CardName name="Cloudpost" nameJp="雲上の座" />
+	- <CardName name="Cranial Plating" nameJp="頭蓋囲い" />
+	- <CardName name="Daze" nameJp="目くらまし" />
+	- <CardName name="Disciple of the Vault" nameJp="大霊堂の信奉者" />
+	- <CardName name="Empty the Warrens" nameJp="巣穴からの総出" />
+	- <CardName name="Fall from Favor" nameJp="失墜" />
+	- <CardName name="Frantic Search" nameJp="大あわての捜索" />
+	- <CardName name="Galvanic Relay" nameJp="電位式リレー" />
+	- <CardName name="Gitaxian Probe" nameJp="ギタクシア派の調査" />
+	- <CardName name="Grapeshot" nameJp="ぶどう弾" />
+	- <CardName name="Gush" nameJp="噴出" />
+	- <CardName name="High Tide" nameJp="満潮" />
+	- <CardName name="Hymn to Tourach" nameJp="トーラックへの賛歌" />
+	- <CardName name="Invigorate" nameJp="激励" />
+	- <CardName name="Mystic Sanctuary" nameJp="神秘の聖域" />
+	- <CardName name="Peregrine Drake" nameJp="流浪のドレイク" />
+	- <CardName name="Prophetic Prism" nameJp="予言のプリズム" />
+	- <CardName name="Sinkhole" nameJp="陥没孔" />
+	- <CardName name="Sojourner's Companion" nameJp="滞留者の相棒" />
+	- <CardName name="Stirring Bard" nameJp="奮起させるバード" />
+	- <CardName name="Underdark Explorer" nameJp="アンダーダークの探検者" />
+	- <CardName name="Temporal Fissure" nameJp="時間の亀裂" />
+	- <CardName name="Treasure Cruise" nameJp="宝船の巡航" />
+	- <CardName name="Vicious Battlerager" nameJp="物騒なバトルレイジャー" />
+</div>

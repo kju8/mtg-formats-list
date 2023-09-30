@@ -1,0 +1,36 @@
+---
+layout: ../../layouts/Layout.astro
+title: Free-for-All
+titleJp: 無差別戦
+---
+
+import Card from '../../components/Card.astro';
+import OXCard from '../../components/OXCard.astro';
+import PeopleIcon from '~icons/ic/sharp-people-outline';
+import HeartIcon from '~icons/material-symbols/favorite-outline'
+import CircleIcon from '~icons/mdi/circle-outline';
+
+<div class="flex gap-2 m-2 flex-wrap justify-center">
+  <Card title="プレイ人数" class="flex-none basis-80 xl:basis-96">
+    <PeopleIcon slot="img" />
+    3名以上
+  </Card>
+  <Card title="開始ライフ" class="flex-none basis-80 xl:basis-96">
+    <HeartIcon slot="img" />
+    元のフォーマットから引き継ぎ
+  </Card>
+  <OXCard title="プレイ可能環境" class="flex-none basis-80 xl:basis-96" list={[
+		{name:"Paper", value: true},
+		{name:"Magic Online", value: false},
+		{name:"Magic Arena", value: false}
+	]}>
+    <CircleIcon slot="img"/>
+  </OXCard>
+</div>
+
+多人数戦用の変種ルール。具体的には以下の条件を満たす。
+
+- チーム戦ではない。
+  - したがって「クリーチャー配置」選択ルールを使用しない。
+- 「影響範囲限定」選択ルールを使用しない。
+- 「左翼への攻撃」「右翼への攻撃」「複数への攻撃」のいずれかの選択ルールを使用する。

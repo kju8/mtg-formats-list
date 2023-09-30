@@ -1,0 +1,112 @@
+---
+layout: ../../layouts/Layout.astro
+title: 1v1 Commander
+---
+
+import CardName from '../../components/cardName.vue';
+import Card from '../../components/Card.astro';
+import OXCard from '../../components/OXCard.astro';
+import AreaIcon from '~icons/iconoir/area-search';
+import CrownIcon from '~icons/pepicons-pencil/crown'
+import CardsIcon from '~icons/mdi/cards-outline';
+import PeopleIcon from '~icons/ic/sharp-people-outline';
+import HeartIcon from '~icons/material-symbols/favorite-outline';
+import CircleIcon from '~icons/mdi/circle-outline';
+
+<div class="flex gap-2 m-2 flex-wrap justify-center">
+  <Card title="カードプール" class="flex-none basis-80 xl:basis-96">
+    <AreaIcon slot="img" />
+    エターナル
+  </Card>
+  <Card title="統率者" class="flex-none basis-80 xl:basis-96">
+    <CrownIcon slot="img" />
+    統率者戦で統率者指定できるカード1枚
+  </Card>
+  <Card title="デッキ枚数" class="flex-none basis-80 xl:basis-96">
+    <CardsIcon slot="img" />
+    統率者含め100枚ちょうど
+  </Card>
+  <Card title="プレイ人数" class="flex-none basis-80 xl:basis-96">
+    <PeopleIcon slot="img" />
+    2名
+  </Card>
+  <Card title="開始ライフ" class="flex-none basis-80 xl:basis-96">
+    <HeartIcon slot="img" />
+    30点
+  </Card>
+  <OXCard title="プレイ可能環境" class="flex-none basis-80 xl:basis-96" list={[
+    {name:"Paper", value: "triangle"},
+    {name:"Magic Online", value: "triangle"},
+    {name:"Magic Arena", value: false}
+  ]}>
+    <CircleIcon slot="img"/>
+  </OXCard>
+</div>
+
+## 概要
+
+以前Magic Onlineでプレイできた1対1戦向け[統率者戦](./commander)派生ルール。
+[Duel Commander](./duel_commander)から派生したものであるが、ルールや禁止リストは異なる。
+以下、統率者戦と異なる点を挙げる。
+- 開始時のライフの総量は30点である。
+- 統率者として指定できるカードは1枚のみである。
+  - 共闘を持つカードは持たないように扱う。
+
+### 禁止カード (2018/07/25時点)
+
+<div class="two-column-list">
+- 「策略」のカード・タイプを持つカード
+- 「アンティ」に関するカード
+- 人種または文化に対し攻撃的なカード
+- <CardName name="Ancestral Recall" />
+- <CardName name="Back to Basics" nameJp="基本に帰れ" />
+- <CardName name="Balance" nameJp="天秤" />
+- <CardName name="Baral, Chief of Compliance" nameJp="遵法長、バラル" />
+- <CardName name="Black Lotus" nameJp="ブラック・ロータス" />
+- <CardName name="Braids, Cabal Minion" nameJp="陰謀団の先手ブレイズ" />
+- <CardName name="Channel" nameJp="チャネル" />
+- <CardName name="Derevi, Empyrial Tactician" nameJp="浄火の戦術家、デリーヴィー" />
+- <CardName name="Doomsday" nameJp="最後の審判" />
+- <CardName name="Edgar Markov" nameJp="エドガー・マルコフ" />
+- <CardName name="Edric, Spymaster of Trest" nameJp="トレストの密偵長、エドリック" />
+- <CardName name="Emrakul, the Aeons Torn" nameJp="引き裂かれし永劫、エムラクール" />
+- <CardName name="Erayo, Soratami Ascendant" nameJp="上位の空民、エラヨウ" />
+- <CardName name="Fastbond" />
+- <CardName name="Food Chain" nameJp="食物連鎖" />
+- <CardName name="Gifts Ungiven" nameJp="けちな贈り物" />
+- <CardName name="Hermit Druid" nameJp="隠遁ドルイド" />
+- <CardName name="Humility" nameJp="謙虚" />
+- <CardName name="Karakas" nameJp="カラカス" />
+- <CardName name="Library of Alexandria" />
+- <CardName name="Mind Twist" nameJp="精神錯乱" />
+- <CardName name="Moat" />
+- <CardName name="Mox Emerald" />
+- <CardName name="Mox Jet" />
+- <CardName name="Mox Pearl" />
+- <CardName name="Mox Ruby" />
+- <CardName name="Mox Sapphire" />
+- <CardName name="Natural Order" nameJp="自然の秩序" />
+- <CardName name="Oath of Druids" nameJp="ドルイドの誓い" />
+- <CardName name="Rofellos, Llanowar Emissary" nameJp="ラノワールの使者ロフェロス" />
+- <CardName name="Strip Mine" nameJp="露天鉱床" />
+- <CardName name="Sensei's Divining Top" nameJp="師範の占い独楽" />
+- <CardName name="Serra Ascendant" nameJp="セラの高位僧" />
+- <CardName name="Survival of the Fittest" nameJp="適者生存" />
+- <CardName name="Sylvan Library" nameJp="森の知恵" />
+- <CardName name="The Tabernacle at Pendrell Vale" />
+- <CardName name="Time Vault" />
+- <CardName name="Time Walk" />
+- <CardName name="Tinker" nameJp="修繕" />
+- <CardName name="Tolarian Academy" nameJp="トレイリアのアカデミー" />
+- <CardName name="Winter Orb" nameJp="冬の宝珠" />
+- <CardName name="Zur the Enchanter" nameJp="結界師ズアー" />
+</div>
+
+また、以下のカードも禁止発表はなかったものの2022年9月時点では使用できなかった。
+- <CardName name="Golos, Tireless Pilgrim" nameJp="不屈の巡礼者、ゴロス" />
+- <CardName name="Hullbreacher" nameJp="船殻破り" />
+- <CardName name="Lutri, the Spellchaser" nameJp="呪文追い、ルーツリー" />
+
+## 関連フォーマット
+
+- [Duel Commander](./duel_commander)

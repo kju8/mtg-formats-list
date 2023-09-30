@@ -1,0 +1,51 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  body {
+    @apply font-sans font-normal text-neutral-800 bg-zinc-50;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    @apply font-serif text-neutral-900 my-2;
+  }
+  h1,
+  h2,
+  h3 {
+    @apply italic border-b border-stone-300 font-bold mt-4;
+  }
+
+  h1 {
+    @apply text-4xl;
+  }
+
+  h2 {
+    @apply text-2xl;
+  }
+
+  h3 {
+    @apply text-xl;
+  }
+
+  h4 {
+    @apply text-lg;
+  }
+
+  p {
+    @apply indent-4;
+  }
+
+  a {
+    @apply underline decoration-emerald-600 decoration-1;
+  }
+
+  .ms {
+    text-indent: 0;
+  }
+}

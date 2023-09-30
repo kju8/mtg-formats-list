@@ -1,0 +1,71 @@
+---
+import Arrow from '~icons/material-symbols/keyboard-arrow-down';
+
+interface Props {
+  title: string;
+}
+const { title } = Astro.props;
+---
+
+<div class="accordion">
+  <div class="accordion--title">{title}<span class="accordion--mark"><Arrow /></span></div>
+  <div class="accordion--body"><slot /></div>
+</div>
+
+<script>
+  const accordions = document.querySelectorAll('.accordion');
+  accordions.forEach((accordion) => {
+    accordion.addEventListener('click', function (event) {
+      console.log('open');
+      if (!(event.target instanceof HTMLElement) || !event.target.closest('div.accordion--title')) {
+        console.log('not');
+        return;
+      }
+      accordion.classList.toggle('accordion--open');
+    });
+  });
+</script>
+
+<style lang="scss">
+  .accordion {
+    @apply rounded-2xl border border-slate-500 m-1;
+  }
+
+  .accordion--title {
+    @apply p-4 font-bold relative border-b;
+    border-color: rgba(255, 255, 255, 0);
+    transition-property: border-color;
+    transition-duration: 0.5s;
+  }
+
+  .accordion--open > .accordion--title {
+    @apply border-slate-300;
+  }
+
+  .accordion--title > .accordion--mark {
+    @apply absolute right-4 text-lg rotate-0;
+    transition-property: transform;
+    transition-duration: 0.5s;
+  }
+  .accordion--open .accordion--mark {
+    @apply rotate-180;
+  }
+
+  .accordion--body {
+    @apply px-4;
+    transition-property: margin-top, margin-bottom, max-height;
+    transition-duration: 0.5s;
+  }
+
+  .accordion:not(.accordion--open) > .accordion--body {
+    @apply my-0;
+    max-height: 0;
+    overflow-y: hidden;
+  }
+
+  .accordion--open > .accordion--body {
+    @apply my-4;
+    max-height: 100vh;
+    overflow-y: auto;
+  }
+</style>

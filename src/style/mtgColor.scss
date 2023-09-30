@@ -1,0 +1,167 @@
+@mixin gradient($direction, $list) {
+  border-image: -webkit-linear-gradient($direction, $list);
+  border-image: -moz-linear-gradient($direction, $list);
+  border-image: -o-linear-gradient($direction, $list);
+  border-image: linear-gradient($direction, $list);
+}
+
+$w-color: rgb(229, 239, 165);
+$u-color: rgb(158, 195, 226);
+$b-color: rgb(140, 128, 119);
+$r-color: rgb(219, 134, 100);
+$g-color: rgb(126, 178, 99);
+$c-color: rgb(190, 185, 178);
+$wu-grad: $w-color, $u-color;
+$ub-grad: $u-color, $b-color;
+$br-grad: $b-color, $r-color;
+$rg-grad: $r-color, $g-color;
+$gw-grad: $g-color, $w-color;
+$wb-grad: $w-color, $b-color;
+$ur-grad: $u-color, $r-color;
+$bg-grad: $b-color, $g-color;
+$rw-grad: $r-color, $w-color;
+$gu-grad: $g-color, $u-color;
+$wub-grad: $w-color, $u-color, $b-color;
+$ubr-grad: $u-color, $b-color, $r-color;
+$brg-grad: $b-color, $r-color, $g-color;
+$rgw-grad: $r-color, $g-color, $w-color;
+$gwu-grad: $g-color, $w-color, $u-color;
+$wbg-grad: $w-color, $b-color, $g-color;
+$urw-grad: $u-color, $r-color, $w-color;
+$bgu-grad: $b-color, $g-color, $u-color;
+$rwb-grad: $r-color, $w-color, $b-color;
+$gur-grad: $g-color, $u-color, $r-color;
+$wubr-grad: $w-color, $u-color, $b-color, $r-color;
+$ubrg-grad: $u-color, $b-color, $r-color, $g-color;
+$brgw-grad: $b-color, $r-color, $g-color, $w-color;
+$rgwu-grad: $r-color, $g-color, $w-color, $u-color;
+$gwub-grad: $g-color, $w-color, $u-color, $b-color;
+$wubrg-grad: $w-color, $u-color, $b-color, $r-color, $g-color;
+
+.w-border {
+  border-color: $w-color;
+}
+
+.u-border {
+  border-color: $u-color;
+}
+
+.b-border {
+  border-color: $b-color;
+}
+
+.g-border {
+  border-color: $g-color;
+}
+
+.r-border {
+  border-color: $r-color;
+}
+
+.c-border {
+  border-color: $c-color;
+}
+
+.wu-border {
+  @include gradient(to right, $wu-grad);
+}
+
+.ub-border {
+  @include gradient(to right, $ub-grad);
+}
+
+.br-border {
+  @include gradient(to right, $br-grad);
+}
+
+.rg-border {
+  @include gradient(to right, $rg-grad);
+}
+
+.gw-border {
+  @include gradient(to right, $gw-grad);
+}
+
+.wb-border {
+  @include gradient(to right, $wb-grad);
+}
+
+.ur-border {
+  @include gradient(to right, $ur-grad);
+}
+
+.bg-border {
+  @include gradient(to right, $bg-grad);
+}
+
+.rw-border {
+  @include gradient(to right, $rw-grad);
+}
+
+.gu-border {
+  @include gradient(to right, $gu-grad);
+}
+
+.wub-border {
+  @include gradient(to right, $wub-grad);
+}
+
+.ubr-border {
+  @include gradient(to right, $ubr-grad);
+}
+
+.brg-border {
+  @include gradient(to right, $brg-grad);
+}
+
+.rgw-border {
+  @include gradient(to right, $rgw-grad);
+}
+
+.gwu-border {
+  @include gradient(to right, $gwu-grad);
+}
+
+.wbg-border {
+  @include gradient(to right, $wbg-grad);
+}
+
+.urw-border {
+  @include gradient(to right, $urw-grad);
+}
+
+.bgu-border {
+  @include gradient(to right, $bgu-grad);
+}
+
+.rwb-border {
+  @include gradient(to right, $rwb-grad);
+}
+
+.gur-border {
+  @include gradient(to right, $gur-grad);
+}
+
+.wubr-border {
+  @include gradient(to right, $wubr-grad);
+}
+
+.ubrg-border {
+  @include gradient(to right, $ubrg-grad);
+}
+
+.brgw-border {
+  @include gradient(to right, $brgw-grad);
+}
+
+.rgwu-border {
+  @include gradient(to right, $rgwu-grad);
+}
+
+.gwub-border {
+  @include gradient(to right, $gwub-grad);
+}
+
+.wubrg-border {
+  @include gradient(to right, $wubrg-grad);
+}

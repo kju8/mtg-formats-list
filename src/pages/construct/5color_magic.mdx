@@ -1,0 +1,246 @@
+---
+layout: ../../layouts/Layout.astro
+title: 5-Color Magic
+---
+
+import CardName from '../../components/cardName.vue';
+import CardText from '../../components/CardText.astro';
+import CardImage from '../../components/cardImage.vue';
+import Card from '../../components/Card.astro';
+import OXCard from '../../components/OXCard.astro';
+import AreaIcon from '~icons/iconoir/area-search';
+import CardsIcon from '~icons/mdi/cards-outline';
+import PeopleIcon from '~icons/ic/sharp-people-outline';
+import HeartIcon from '~icons/material-symbols/favorite-outline'
+import CircleIcon from '~icons/mdi/circle-outline';
+import Accordion from '../../components/Accordion.astro';
+
+<div class="flex gap-2 m-2 flex-wrap justify-center">
+  <Card title="カードプール" class="flex-none basis-80 xl:basis-96">
+    <AreaIcon slot="img" />
+    エターナル＋固有プロモカード3枚
+  </Card>
+  <Card title="デッキ枚数" class="flex-none basis-80 xl:basis-96">
+    <CardsIcon slot="img" />
+		300枚以上\
+    (1色に付き25枚以上)
+  </Card>
+  <Card title="プレイ人数" class="flex-none basis-80 xl:basis-96">
+    <PeopleIcon slot="img" />
+    2名
+  </Card>
+  <Card title="開始ライフ" class="flex-none basis-80 xl:basis-96">
+    <HeartIcon slot="img" />
+    20点
+  </Card>
+  <OXCard title="プレイ可能環境" class="flex-none basis-80 xl:basis-96" list={[
+		{name:"Paper", value: "triangle"},
+		{name:"Magic Online", value: false},
+		{name:"Magic Arena", value: false}
+	]}>
+    <CircleIcon slot="img"/>
+  </OXCard>
+</div>
+
+## 概要
+
+一般的なフォーマットでは使用不可のカード、大量のデッキ枚数、強制された5色デッキが特徴の非公式フォーマット。
+
+### 詳細ルール
+
+#### 構築ルール
+
+- 通常の4枚制限ルールを使用する。
+- デッキは300枚以上であり、かつ各色最低25枚ずつ入れなければいけない。
+  - 多色のカードはいずれかの色のみでカウントする。
+- プロキシを何枚でもデッキに入れてもよい。
+- トーナメント・イベントにおいてサイドボードは用いない。
+
+#### プレイルール
+
+##### 先行の決定
+
+アンティを使用するマッチではアンティのマナ総量が最も大きいプレイヤーが先行の決定権をまず得る。
+同じマナ総量のプレイヤーが複数居るならアンティのマナ・コストに含まれる色が多いプレイヤーが先行の決定権を得る。
+
+##### アンティ
+
+アンティを使用するマッチであれば、マリガンの前に以下の手順でアンティを選ぶ。
+
+1. ライブラリーを切り直し、一番上のカードを公開する。それがプロキシでなければアンティの候補となる。
+1. 以下の条件を満たすカードがアンティの候補であれば、それは自動的にアンティとなる。
+	- 土地でないレア・カード
+	- 土地でないFoilカード
+	- 土地でないDCIプロモーション・カード
+	- 5-Colorのプロモーショナル・カード
+	- 土地でない稀少度がタイムシフト（紫色）のカード
+1. 対戦相手がアンティの候補をアンティとして受理した場合、それをアンティとする。
+1. 自動的にアンティが受理されず、対戦相手がアンティとして受理しなかった場合、1に戻る。
+
+トーナメント中にアンティを失ったならば、マッチ後にゲーム外から同じ名前のカードか基本土地を加えなければならない。
+
+##### マリガン
+
+基本的にパリ・マリガンを用いるが、それ以前に「土地マリガン/Land-based Malligan」を行うことができる。
+土地マリガンは0土地マリガン/0-land Malligan、1土地マリガン/1-land Malligan、全土地マリガン/All-land Malliganの三種類ある。
+
+1. 初手プレイヤーから順番に以下の順序で土地マリガンを行う。
+  1. 初期手札に土地が0枚、1枚もしくは7枚であったなら、手札を公開し土地の枚数に応じた土地マリガンを宣言することができる。
+  1. 土地マリガンが宣言されたなら、他のプレイヤーは手札に関わらず「マリガンに乗る」と宣言することができる。
+  1. マリガンするプレイヤーとマリガンに乗ったプレイヤーは順番に手札をデッキに戻しシャッフルし7枚引く。
+  1. このあと、自身が行っていない土地マリガンの種別の条件を満たしているのであればIIに戻ってもよい。
+1. すべてのプレイヤーが土地マリガンを終えたあと、通常のパリ・マリガンを行う。
+
+#### エラッタ
+
+以下のカードは以下のように修正される。
+<Accordion title="Contract from Below">
+  <CardText name="Contract from Below" type="ソーサリー">
+    <CardImage name="Contract from Below" slot="img"/>
+    <Fragment slot="mana">
+      <i class="ms ms-cost ms-b ms-shadow" />
+    </Fragment>
+    あなたの手札を捨てる。アンティを賭けてプレイしている場合、カード1枚をアンティに賭ける。カードを7枚引く。
+  </CardText>
+</Accordion>
+<Accordion title="Jeweled Bird">
+  <CardText name="Jeweled Bird / 宝石の鳥" type="アーティファクト">
+    <CardImage name="Jeweled Bird" slot="img"/>
+    <Fragment slot="mana">
+      <i class="ms ms-cost ms-1 ms-shadow" />
+    </Fragment>
+    アンティを賭けてプレイしない場合、プレイを開始する前に宝石の鳥をあなたのデッキから取り除く。
+
+    <i class="ms ms-cost ms-tap ms-shadow" /> : あなたが宝石の鳥のオーナーである場合、宝石の鳥をアンティに賭ける。あなたのアンティからこの宝石の鳥以外のすべてのカードをあなたの墓地に置き、その後、カードを1枚引く。
+  </CardText>
+</Accordion>
+<Accordion title="Chaos Orb">
+  <CardText name="Chaos Orb" type="アーティファクト">
+    <CardImage name="Chaos Orb" slot="img"/>
+    <Fragment slot="mana">
+      <i class="ms ms-cost ms-2 ms-shadow" />
+    </Fragment>
+    <i class="ms ms-cost ms-1 ms-shadow" /> , <i class="ms ms-cost ms-tap ms-shadow" /> : あなたはChaos Orbをスリーブから取りはずす。Chaos Orbが戦場に出ている場合、Chaos Orbをプレイしている場所から少なくとも１フィート高い場所からはじく。Chaos Orbが水平に１回転以上した場合、それが触れているすべてのトークンでないパーマネントを破壊する。その後Chaos Orbを破壊する。
+  </CardText>
+</Accordion>
+<Accordion title="Falling Star">
+  <CardText name="Falling Star" type="ソーサリー">
+    <CardImage name="Falling Star" slot="img"/>
+    <Fragment slot="mana">
+      <i class="ms ms-cost ms-2 ms-shadow" /> <i class="ms ms-cost ms-r ms-shadow" />
+    </Fragment>
+    あなたはFalling Starをスリーブから取りはずす。Falling Starをプレイしている場所から少なくとも１フィート高い場所からはじく。Falling Starは、それが上に乗ったすべてのクリーチャーに３点のダメージを与える。Falling Starによってダメージを与えられたすべてのクリーチャーをタップする。Falling Starが水平に１回転以上しなかった場合、それは効果を及ぼさない。
+  </CardText>
+</Accordion>
+
+#### 5-Colorプロモーショナル・カード
+
+WotC公認ではないカードが3種類使用を許可されている。
+<Accordion title="Mox Crystal">
+  <CardText name="Mox Crystal" type="アーティファクト">
+    <Fragment slot="mana">
+      <i class="ms ms-cost ms-0 ms-shadow" />
+    </Fragment>
+    <i class="ms ms-cost ms-tap ms-shadow -mt-2" /> : あなたのマナ・プールに<i class="ms ms-cost ms-1 ms-shadow -mt-2" />を加える。
+  </CardText>
+</Accordion>
+<Accordion title="Franky">
+  <CardText name="Franky" type="伝説のクリーチャー ― 猫">
+    <Fragment slot="mana">
+      <i class="ms ms-cost ms-r ms-shadow" /><i class="ms ms-cost ms-b ms-shadow" />
+    </Fragment>
+    Frankyを生け贄に捧げる: クリーチャー１体かプレイヤー１人を対象とする。Frankyはそれに２点のダメージを与える。
+    
+    Frankyを生け贄に捧げる: アンティ呪文１つか起動型アンティ能力１つを対象とし、それを打ち消す。
+    <Fragment slot="size">
+      2 / 2
+    </Fragment>
+  </CardText>
+</Accordion>
+<Accordion title="Aku Fehling, the Predictor">
+  <CardText name="Aku Fehling, the Predictor" type="伝説のクリーチャー ― 人間 ウィザード">
+    <Fragment slot="mana">
+      <i class="ms ms-cost ms-r ms-shadow" /><i class="ms ms-cost ms-g ms-shadow" />
+    </Fragment>
+    キッカー <i class="ms ms-cost ms-u ms-shadow" />
+
+    Aku Fehlingが戦場に出たとき、Aku Fehlingがキッカーされていたならカード名を選んでもよい。そうしたならライブラリーの一番上のカードを公開する。それが選ばれたカードであるなら、ターンの終了時まであなたはそれをマナ・コストを支払わずライブラリーの上からプレイしてもよい。
+
+    Aku Fehlingを生贄に捧げる: カードを1枚引く。
+    <Fragment slot="size">
+      2 / 2
+    </Fragment>
+  </CardText>
+</Accordion>
+
+### 禁止カード (2017/06時点)
+- <CardName name="Battle of Wits" nameJp="機知の戦い" />
+- <CardName name="Bringer of the Black Dawn" nameJp="黒の夜明けの運び手" />
+- <CardName name="Darkpact" />
+- <CardName name="Holistic Wisdom" nameJp="総体の知識" />
+- <CardName name="Insidious Dreams" nameJp="腹黒い夢" />
+- <CardName name="Parallel Thoughts" nameJp="平行思考" />
+- <CardName name="Phyrexian Portal" />
+- <CardName name="Shahrazad" />
+
+
+### 制限カード (2017/06時点)
+
+<div class="two-column-list">
+  - <CardName name="Academy Rector" nameJp="アカデミーの学長" />
+  - <CardName name="All Suns' Dawn" nameJp="全ての太陽の夜明け" />
+  - <CardName name="Ancestral Recall" />
+  - <CardName name="Balance" nameJp="天秤" />
+  - <CardName name="Black Lotus" />
+  - <CardName name="Chaos Orb" />
+  - <CardName name="Crop Rotation" nameJp="輪作" />
+  - <CardName name="Crucible of Worlds" nameJp="世界のるつぼ" />
+  - <CardName name="Demonic Consultation" />
+  - <CardName name="Demonic Tutor" nameJp="悪魔の教示者" />
+  - <CardName name="Divining Witch" nameJp="預言する妖術使い" />
+  - <CardName name="Enlightened Tutor" nameJp="悟りの教示者" />
+  - <CardName name="Eternal Witness" nameJp="永遠の証人" />
+  - <CardName name="Fabricate" nameJp="加工" />
+  - <CardName name="Fastbond" />
+  - <CardName name="Gamble" nameJp="ギャンブル" />
+  - <CardName name="Gifts Ungiven" nameJp="けちな贈り物" />
+  - <CardName name="Grim Tutor" nameJp="不気味な教示者" />
+  - <CardName name="Hermit Druid" nameJp="隠遁ドルイド" />
+  - <CardName name="Imperial Seal" nameJp="伝国の玉璽" />
+  - <CardName name="Intuition" nameJp="直観" />
+  - <CardName name="Isochron Scepter" nameJp="等時の王笏" />
+  - <CardName name="Library of Alexandria" />
+  - <CardName name="Mana Crypt" nameJp="魔力の墓所" />
+  - <CardName name="Mana Vault" nameJp="魔力の櫃" />
+  - <CardName name="Merchant Scroll" nameJp="商人の巻物" />
+  - Mox Crystal
+  - <CardName name="Mox Emerald" />
+  - <CardName name="Mox Jet" />
+  - <CardName name="Mox Pearl" />
+  - <CardName name="Mox Ruby" />
+  - <CardName name="Mox Sapphire" />
+  - <CardName name="Mystical Tutor" nameJp="神秘の教示者" />
+  - <CardName name="Nostalgic Dreams" nameJp="郷愁的な夢" />
+  - <CardName name="Oath of Druids" nameJp="ドルイドの誓い" />
+  - <CardName name="Panoptic Mirror" nameJp="一望の鏡" />
+  - <CardName name="Personal Tutor" nameJp="親身の教示者" />
+  - <CardName name="Regrowth" nameJp="新たな芽吹き" />
+  - <CardName name="Sol Ring" nameJp="太陽の指輪" />
+  - <CardName name="Strip Mine" nameJp="露天鉱床" />
+  - <CardName name="Survival of the Fittest" nameJp="適者生存" />
+  - <CardName name="Sylvan Scrying" nameJp="森の占術" />
+  - <CardName name="Time Spiral" nameJp="時のらせん" />
+  - <CardName name="Time Vault" />
+  - <CardName name="Time Walk" />
+  - <CardName name="Timetwister" />
+  - <CardName name="Tinker" nameJp="修繕" />
+  - <CardName name="Tolarian Academy" nameJp="トレイリアのアカデミー" />
+  - <CardName name="Transmute Artifact" />
+  - <CardName name="Vampiric Tutor" nameJp="吸血の教示者" />
+  - <CardName name="Wheel of Fortune" />
+  - <CardName name="Yawgmoth's Bargain" nameJp="ヨーグモスの取り引き" />
+</div>
+
+## 関連フォーマット
+
+- [Prismatic](./prismatic)

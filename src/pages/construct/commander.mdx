@@ -1,0 +1,145 @@
+---
+layout: ../../layouts/Layout.astro
+title: Commander
+titleJp: 統率者
+---
+
+import CardName from '../../components/cardName.vue';
+import ManaSymbol from '../../components/manaSymbol.vue';
+import Card from '../../components/Card.astro';
+import OXCard from '../../components/OXCard.astro';
+import AreaIcon from '~icons/iconoir/area-search';
+import CrownIcon from '~icons/pepicons-pencil/crown'
+import CardsIcon from '~icons/mdi/cards-outline';
+import PeopleIcon from '~icons/ic/sharp-people-outline';
+import HeartIcon from '~icons/material-symbols/favorite-outline';
+import CircleIcon from '~icons/mdi/circle-outline';
+
+<div class="flex gap-2 m-2 flex-wrap justify-center">
+  <Card title="カードプール" class="flex-none basis-80 xl:basis-96">
+    <AreaIcon slot="img" />
+    エターナル
+  </Card>
+  <Card title="統率者" class="flex-none basis-80 xl:basis-96">
+    <CrownIcon slot="img" />
+    伝説のクリーチャーか統率者指定できるカード1枚\
+    もしくは共闘2枚や背景選択1枚・背景1枚の組み合わせ
+  </Card>
+  <Card title="デッキ枚数" class="flex-none basis-80 xl:basis-96">
+    <CardsIcon slot="img" />
+    統率者含め100枚ちょうど
+  </Card>
+  <Card title="プレイ人数" class="flex-none basis-80 xl:basis-96">
+    <PeopleIcon slot="img" />
+    3名以上
+  </Card>
+  <Card title="開始ライフ" class="flex-none basis-80 xl:basis-96">
+    <HeartIcon slot="img" />
+    40点
+  </Card>
+  <OXCard title="プレイ可能環境" class="flex-none basis-80 xl:basis-96" list={[
+    {name:"Paper", value: "triangle"},
+    {name:"Magic Online", value: true},
+    {name:"Magic Arena", value: false}
+  ]}>
+    <CircleIcon slot="img"/>
+  </OXCard>
+</div>
+
+## 概要
+
+多人数戦用カジュアル変種ルールの1つ。統率者と呼ばれるリーダーのような伝説のクリーチャーを軸に組まれたデッキで他のプレイヤーを脱落させることを目標とする。
+一般的には[無差別戦](../variant/free_for_all)で行われ、「複数への攻撃」を用い、「影響範囲制限」を用いない。
+
+### 詳細ルール
+
+大幅にMtGの基本ルールと違う点があるため、すべて記載する。
+
+#### 構築ルール
+
+- ハイランダーである。（基本土地以外のカードは1枚制限である。）
+- ライブラリーの1枚のカードを統率者と指定する。
+  - 統率者は伝説のクリーチャー、もしくは「統率者に指定できる」とテキストにあるカードを指定できる。
+  - また、共闘を持ちそれぞれが統率者指定できる条件を満たすカード2枚、
+    背景選択を持つカードと背景を持つカードの組み合わせ等であれば2枚を指定することができる。
+- 統率者の枚数に問わず、デッキの枚数は統率者を含めて100枚である。
+- 固有色の一部が統率者の固有色に含まれないカードは使用不可である。
+- サイドボードは用いないが、相棒は使用可能である。
+  - 相棒は固有色のルールに従う必要がある。また、メインデッキと合わせてハイランダーでなければならない。
+
+#### ゲームルール
+
+- ゲームの開始時に、構築段階で指定した統率者を表向きに統率領域に置く。
+- 多人数戦のため、すべてのプレイヤーはフリー・マリガンを行うことができる。
+  - 各プレイヤーは最初のマリガンを、ペナルティ無しで行うことができる。\
+    （マリガン時のペナルティの計算の際、最初のマリガンをカウントしない。）
+- 統率領域にある統率者は、それが唱えられるタイミングであるなら唱えることができる。
+  - モードを持つ両面カードや当事者カードであっても、タイミングが問題ないのであれば第2面や出来事として唱えることができる。
+- 統率領域から統率者を唱える時、そのカードがそれ以前に唱えられた回数1回につき<ManaSymbol mark="2" />を支払わなければならない。
+  - これはカードごとに数える。
+    - つまり、第1面と第2面や、当事者と出来事は合わせて数え、共闘は別に数える。
+- 墓地、追放領域、手札、ライブラリーのいずれかの領域に統率者が置かれる際、オーナーはそれを統率領域に戻すことができる。
+- 同一のカードの統率者から受けた戦闘ダメージを統率者ダメージという。いずれかの統率者の統率者ダメージが21点に達したプレイヤーは敗北する。
+- ゲームの外部から、他のカードをゲームに加えようとする効果は機能しない。
+  - 相棒は加えるカードと加えさせるカードが同一のカードのため、機能する。
+- ゲームの外部から、開始時のデッキに含まれているカードや固有色がそのプレイヤーの統率者の固有色と合致していないカードは加えることができない。
+
+### 禁止カード (2023/09/14現在)
+
+<div class="two-column-list">
+  - 「策略」のカード・タイプを持つカード
+  - 「アンティ」に関するカード
+  - 人種または文化に対し攻撃的なカード
+  - <CardName name="Ancestral Recall" />
+  - <CardName name="Balance" nameJp="天秤" />
+  - <CardName name="Biorhythm" nameJp="生命の律動" />
+  - <CardName name="Black Lotus" />
+  - <CardName name="Braids, Cabal Minion" nameJp="陰謀団の先手ブレイズ" />
+  - <CardName name="Channel" nameJp="チャネル" />
+  - <CardName name="Coalition Victory" nameJp="合同勝利" />
+  - <CardName name="Emrakul, the Aeons Torn" nameJp="引き裂かれし永劫、エムラクール" />
+  - <CardName name="Erayo, Soratami Ascendant" nameJp="上位の空民、エラヨウ" />
+  - <CardName name="Fastbond" />
+  - <CardName name="Flash" nameJp="閃光" />
+  - <CardName name="Golos, Tireless Pilgrim" nameJp="不屈の巡礼者、ゴロス" />
+  - <CardName name="Gifts Ungiven" nameJp="けちな贈り物" />
+  - <CardName name="Griselbrand" nameJp="グリセルブランド" />
+  - <CardName name="Hullbreacher" nameJp="船殻破り" />
+  - <CardName name="Iona, Shield of Emeria" nameJp="エメリアの盾、イオナ" />
+  - <CardName name="Karakas" nameJp="カラカス" />
+  - <CardName name="Leovold, Emissary of Trest" nameJp="トレストの使者、レオヴォルド" />
+  - <CardName name="Library of Alexandria" />
+  - <CardName name="Limited Resources" nameJp="限りある資源" />
+  - <CardName name="Lutri, the Spellchaser" nameJp="呪文追い、ルーツリー" />
+  - <CardName name="Mox Emerald" />
+  - <CardName name="Mox Jet" />
+  - <CardName name="Mox Pearl" />
+  - <CardName name="Mox Ruby" />
+  - <CardName name="Mox Sapphire" />
+  - <CardName name="Panoptic Mirror" nameJp="一望の鏡" />
+  - <CardName name="Paradox Engine" nameJp="パラドックス装置" />
+  - <CardName name="Primeval Titan" nameJp="原始のタイタン" />
+  - <CardName name="Prophet of Kruphix" nameJp="クルフィックスの預言者" />
+  - <CardName name="Recurring Nightmare" nameJp="繰り返す悪夢" />
+  - <CardName name="Rofellos, Llanowar Emissary" nameJp="ラノワールの使者ロフェロス" />
+  - <CardName name="Shahrazad" />
+  - <CardName name="Sundering Titan" nameJp="隔離するタイタン" />
+  - <CardName name="Sway of the Stars" nameJp="星の揺らぎ" />
+  - <CardName name="Sylvan Primordial" nameJp="森林の始源体" />
+  - <CardName name="Time Vault" />
+  - <CardName name="Time Walk" />
+  - <CardName name="Tinker" nameJp="修繕" />
+  - <CardName name="Tolarian Academy" nameJp="トレイリアのアカデミー" />
+  - <CardName name="Trade Secrets" nameJp="企業秘密" />
+  - <CardName name="Upheaval" nameJp="激動" />
+  - <CardName name="Yawgmoth's Bargain" nameJp="ヨーグモスの取り引き" />
+</div>
+
+## 関連リンク
+
+- [公式サイト](https://mtgcommander.net/)
+
+## 関連フォーマット
+
+- [ブロール](./brawl)
+- [Duel Commander](./duel_commander)

@@ -1,0 +1,47 @@
+---
+layout: ../../layouts/Layout.astro
+title: Freeform
+---
+
+import Card from '../../components/Card.astro';
+import OXCard from '../../components/OXCard.astro';
+import AreaIcon from '~icons/iconoir/area-search';
+import CardsIcon from '~icons/mdi/cards-outline';
+import PlusIcon from '~icons/mdi/card-plus-outline';
+import PeopleIcon from '~icons/ic/sharp-people-outline';
+import HeartIcon from '~icons/material-symbols/favorite-outline';
+import CircleIcon from '~icons/mdi/circle-outline';
+
+<div class="flex gap-2 m-2 flex-wrap justify-center">
+  <Card title="カードプール" class="flex-none basis-80 xl:basis-96">
+    <AreaIcon slot="img" />
+    すべて
+  </Card>
+  <Card title="デッキ枚数" class="flex-none basis-80 xl:basis-96">
+    <CardsIcon slot="img" />
+    40枚以上
+  </Card>
+  <Card title="サイドボード枚数" class="flex-none basis-80 xl:basis-96">
+    <PlusIcon slot="img" />
+    無制限
+  </Card>
+  <Card title="プレイ人数" class="flex-none basis-80 xl:basis-96">
+    <PeopleIcon slot="img" />
+    2名
+  </Card>
+  <Card title="開始ライフ" class="flex-none basis-80 xl:basis-96">
+    <HeartIcon slot="img" />
+    20点
+  </Card>
+  <OXCard title="プレイ可能環境" class="flex-none basis-80 xl:basis-96" list={[
+    {name:"Paper", value: false},
+    {name:"Magic Online", value: true},
+    {name:"Magic Arena", value: false}
+  ]}>
+    <CircleIcon slot="img"/>
+  </OXCard>
+</div>
+
+## 概要
+
+Magic Onlineで使用可能なカードすべてが使用でき、4枚制限やヴァンガードの1枚制限等も全て無いルール。紙での[タイプ0](./type0)に相当する。

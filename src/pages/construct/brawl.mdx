@@ -1,0 +1,71 @@
+---
+layout: ../../layouts/Layout.astro
+title: Brawl
+titleJp: ブロール
+---
+
+import CardName from '../../components/cardName.vue';
+import Card from '../../components/Card.astro';
+import OXCard from '../../components/OXCard.astro';
+import AreaIcon from '~icons/iconoir/area-search';
+import CrownIcon from '~icons/pepicons-pencil/crown'
+import CardsIcon from '~icons/mdi/cards-outline';
+import PeopleIcon from '~icons/ic/sharp-people-outline';
+import HeartIcon from '~icons/material-symbols/favorite-outline';
+import CircleIcon from '~icons/mdi/circle-outline';
+
+<div class="flex gap-2 m-2 flex-wrap justify-center">
+  <Card title="カードプール" class="flex-none basis-80 xl:basis-96">
+    <AreaIcon slot="img" />
+    [スタンダード](./standard)＋特殊カード2枚
+  </Card>
+  <Card title="統率者" class="flex-none basis-80 xl:basis-96">
+    <CrownIcon slot="img" />
+    伝説のクリーチャーか伝説のプレインズウォーカー1枚
+  </Card>
+  <Card title="デッキ枚数" class="flex-none basis-80 xl:basis-96">
+    <CardsIcon slot="img" />
+    統率者含め60枚ちょうど
+  </Card>
+  <Card title="プレイ人数" class="flex-none basis-80 xl:basis-96">
+    <PeopleIcon slot="img" />
+    2名以上
+  </Card>
+  <Card title="開始ライフ" class="flex-none basis-80 xl:basis-96">
+    <HeartIcon slot="img" />
+    30点もしくは25点
+  </Card>
+  <OXCard title="プレイ可能環境" class="flex-none basis-80 xl:basis-96" list={[
+    {name:"Paper", value: "triangle"},
+    {name:"Magic Online", value: true},
+    {name:"Magic Arena", value: true}
+  ]}>
+    <CircleIcon slot="img"/>
+  </OXCard>
+</div>
+
+## 概要
+
+[スタンダード](./standard)のカードプールで遊ぶことのできる[統率者戦](./commander)の派生ルール。
+ただし、ローテーションに関わらず、<CardName name="Arcane Signet" nameJp="秘儀の印鑑" />と<CardName name="Command Tower" nameJp="統率の塔" />は使用可能である。
+
+スタンダードや統率者戦とは異なる固有のルール・禁止リストを持っている。
+統率者戦と異なる点を以下に挙げる。
+- デッキ枚数は60枚である。
+- 開始時のライフは多人数戦であれば30点であり、1対1戦であれば25点である。
+- 1対1戦であってもフリーマリガンを行うことができる。
+- すべてのプレインズウォーカーが統率者指定可能である。
+- 統率者ダメージルールは使用しない。
+- 固有色を持たない統率者を使用する際、基本土地を1種類選び、そのカードをデッキに含むことができる。
+
+他の派生ルールとの混同を避けるためスタンダード・ブロール/Standard Brawlと呼ぶこともある。
+
+### 禁止カード (2023/09/14現在)
+
+- <CardName name="Omnath, Locus of Creation" nameJp="創造の座、オムナス" />
+- <CardName name="Pithing Needle" nameJp="真髄の針" />
+
+## 関連フォーマット
+
+- [スタンダード](./standard)
+- [統率者戦](./commander)

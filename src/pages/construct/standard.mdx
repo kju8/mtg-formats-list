@@ -1,0 +1,82 @@
+---
+layout: ../../layouts/Layout.astro
+title: Standard
+titleJp: スタンダード
+---
+
+import CardName from '../../components/cardName.vue';
+import Card from '../../components/Card.astro';
+import OXCard from '../../components/OXCard.astro';
+import AreaIcon from '~icons/iconoir/area-search';
+import CardsIcon from '~icons/mdi/cards-outline';
+import PlusIcon from '~icons/mdi/card-plus-outline';
+import PeopleIcon from '~icons/ic/sharp-people-outline';
+import HeartIcon from '~icons/material-symbols/favorite-outline'
+import CircleIcon from '~icons/mdi/circle-outline';
+
+<div class="flex gap-2 m-2 flex-wrap justify-center">
+  <Card title="カードプール" class="flex-none basis-80 xl:basis-96">
+    <AreaIcon slot="img" />
+    最大3年間のカードが使用できる。\
+    具体的には使用可能セットの項目を参照。
+  </Card>
+  <Card title="デッキ枚数" class="flex-none basis-80 xl:basis-96">
+    <CardsIcon slot="img" />
+    60枚以上
+  </Card>
+  <Card title="サイドボード枚数" class="flex-none basis-80 xl:basis-96">
+    <PlusIcon slot="img" />
+    15枚以下
+  </Card>
+  <Card title="プレイ人数" class="flex-none basis-80 xl:basis-96">
+    <PeopleIcon slot="img" />
+    2名
+  </Card>
+  <Card title="開始ライフ" class="flex-none basis-80 xl:basis-96">
+    <HeartIcon slot="img" />
+    20点
+  </Card>
+  <OXCard title="プレイ可能環境" class="flex-none basis-80 xl:basis-96" list={[
+		{name:"Paper", value: true},
+		{name:"Magic Online", value: true},
+		{name:"Magic Arena", value: true}
+	]}>
+    <CircleIcon slot="img"/>
+  </OXCard>
+</div>
+
+## 概要
+
+最大3年間のカードが使用できる最もカードプールの狭い構築ルール。
+認定大会で使用される最も主流の構築フォーマットであり競技性が高い。
+また、使用可能カードの少なさ、カードの生産枚数の多さもあり参入も容易でもある。
+
+### 使用可能セット (2023/09/14現在)
+
+- イニストラード：真夜中の狩り
+- イニストラード：真紅の契り
+- 神河：輝ける世界
+- ニューカペナの街角
+- 団結のドミナリア
+- 兄弟戦争
+- ファイレクシア：完全なる統一
+- 機械兵団の進軍
+- 機械兵団の進軍：決戦の後に
+- エルドレインの森
+
+### 禁止カード (2023/09/14現在)
+
+- <CardName name="The Meathook Massacre" nameJp="食肉鉤虐殺事件" />
+- <CardName name="Reckoner Bankbuster" nameJp="勢団の銀行破り" />
+- <CardName name="Fable of the Mirror-Breaker" nameJp={['鏡割りの寓話', 'キキジキの鏡像']} />
+- <CardName name="Invoke Despair" nameJp="絶望招来" />
+
+## 関連リンク
+
+- [公式サイト](https://mtg-jp.com/gameplay/format/standard.html)
+- [MTG Wiki](http://mtgwiki.com/wiki/%E3%82%B9%E3%82%BF%E3%83%B3%E3%83%80%E3%83%BC%E3%83%89)
+
+## 関連フォーマット
+
+- [アルケミー](./alchemy)
+- [ブロール](./brawl)

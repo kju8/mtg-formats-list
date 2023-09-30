@@ -1,0 +1,75 @@
+---
+import { Breadcrumbs } from 'astro-breadcrumbs';
+import 'astro-breadcrumbs/breadcrumbs.css';
+import NavNext from '~icons/iconoir/nav-arrow-right';
+import NavHome from '~icons/material-symbols/home';
+interface Props {
+  title?: string;
+  titleJp?: string;
+}
+const { title, titleJp } = Astro.props;
+---
+
+<body>
+  <div class="fixed header bg-zinc-800 py-4 px-4 text-slate-200 top-0 z-50 shadow-lg w-full h-24" role="navigation">
+    <Breadcrumbs>
+      <NavHome slot="index" />
+      <NavNext slot="separator" />
+    </Breadcrumbs>
+    {
+      title !== undefined && (
+        <h1 class="border-none my-2 text-slate-200">
+          {title}
+          {titleJp !== undefined && <span class="font-normal text-lg">{' - ' + titleJp}</span>}
+        </h1>
+      )
+    }
+  </div>
+  <div class="container mx-auto mb-32 mt-24 pt-8">
+    <slot />
+  </div>
+</body>
+
+<style is:global>
+  .c-breadcrumbs li {
+    text-transform: capitalize;
+  }
+
+  ul:not(.c-breadcrumbs) > li {
+    margin-left: 1em;
+    text-indent: -1em;
+  }
+
+  ul:not(.c-breadcrumbs) > li::before {
+    text-indent: 0;
+    display: inline-block;
+    vertical-align: bottom;
+    content: '\e623';
+    /* stylelint-disable-next-line font-family-no-missing-generic-family-keyword */
+    font-family: Mana;
+    position: relative;
+    top: 1px;
+  }
+
+  .two-column-list ul {
+    @apply md:columns-2;
+  }
+
+  .three-column-list ul {
+    @apply md:columns-2 xl:columns-3;
+  }
+
+  * + p {
+    margin-top: 0.5rem !important;
+  }
+
+  :not(.c-breadcrumbs) > ol {
+    list-style-type: decimal !important;
+    margin-left: 1em !important;
+  }
+
+  :not(.c-breadcrumbs) > ol ol {
+    list-style-type: upper-roman !important;
+    margin-left: 1.5em !important;
+  }
+</style>

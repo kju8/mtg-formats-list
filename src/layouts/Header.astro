@@ -1,0 +1,19 @@
+---
+interface Props {
+  title?: string;
+}
+const { title } = Astro.props;
+import { GoogleFontsOptimizer } from 'astro-google-fonts-optimizer';
+---
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="description" content="Astro description" />
+  <meta name="viewport" content="width=device-width" />
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+  <meta name="generator" content={Astro.generator} />
+  <GoogleFontsOptimizer
+    url="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;700&family=Noto+Sans:ital,wght@0,400;0,700;1,400;1,700&family=Noto+Serif+JP:wght@400;700&family=Noto+Serif:ital,wght@0,400;0,700;1,400;1,700&display=swap"
+  />
+  <title>MTG Formats List{title !== undefined && ' - ' + title}</title>
+</head>

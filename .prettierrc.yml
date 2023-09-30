@@ -1,0 +1,11 @@
+plugins:
+  - prettier-plugin-astro
+printWidth: 120
+tabWidth: 2
+singleQuote: true
+trailingComma: none
+semi: true
+overrides:
+  - files: "*.astro"
+    options:
+      parser: astro

@@ -1,0 +1,129 @@
+---
+layout: ../../layouts/Layout.astro
+title: Prismatic
+---
+
+import CardName from '../../components/cardName.vue';
+import Card from '../../components/Card.astro';
+import OXCard from '../../components/OXCard.astro';
+import AreaIcon from '~icons/iconoir/area-search';
+import CardsIcon from '~icons/mdi/cards-outline';
+import PeopleIcon from '~icons/ic/sharp-people-outline';
+import HeartIcon from '~icons/material-symbols/favorite-outline'
+import CircleIcon from '~icons/mdi/circle-outline';
+
+<div class="flex gap-2 m-2 flex-wrap justify-center">
+  <Card title="カードプール" class="flex-none basis-80 xl:basis-96">
+    <AreaIcon slot="img" />
+    エターナル
+  </Card>
+  <Card title="デッキ枚数" class="flex-none basis-80 xl:basis-96">
+    <CardsIcon slot="img" />
+		250枚以上\
+    (1色に付き20枚以上)
+  </Card>
+  <Card title="プレイ人数" class="flex-none basis-80 xl:basis-96">
+    <PeopleIcon slot="img" />
+    2名
+  </Card>
+  <Card title="開始ライフ" class="flex-none basis-80 xl:basis-96">
+    <HeartIcon slot="img" />
+    20点
+  </Card>
+  <OXCard title="プレイ可能環境" class="flex-none basis-80 xl:basis-96" list={[
+		{name:"Paper", value: false},
+		{name:"Magic Online", value: "triangle"},
+		{name:"Magic Arena", value: false}
+	]}>
+    <CircleIcon slot="img"/>
+  </OXCard>
+</div>
+
+## 概要
+
+[5-Color Magic](./5color_magic)を元にしたMO向けフォーマット。以前は認定されていた。
+
+### 禁止カード
+
+<div class="three-column-list">
+  - <CardName name="Ancestral Recall" />
+  - <CardName name="Balance" nameJp="天秤" />
+  - <CardName name="Battle of Wits" nameJp="機知の戦い" />
+  - <CardName name="Bazaar of Baghdad" />
+  - <CardName name="Black Lotus" />
+  - <CardName name="Bribery" nameJp="袖の下" />
+  - <CardName name="Bringer of the Black Dawn" nameJp="黒の夜明けの運び手" />
+  - <CardName name="Buried Alive" nameJp="生き埋め" />
+  - <CardName name="Burning Wish" nameJp="燃え立つ願い" />
+  - <CardName name="Channel" nameJp="チャネル" />
+  - <CardName name="Congregation at Dawn" nameJp="夜明けの集会" />
+  - <CardName name="Crucible of Worlds" nameJp="世界のるつぼ" />
+  - <CardName name="Cunning Wish" nameJp="狡猾な願い" />
+  - <CardName name="Demonic Consultation" />
+  - <CardName name="Demonic Tutor" nameJp="悪魔の教示者" />
+  - <CardName name="Detritivore" nameJp="砕岩を食うもの" />
+  - <CardName name="Diabolic Intent" nameJp="悪魔の意図" />
+  - <CardName name="Dust Bowl" nameJp="黄塵地帯" />
+  - <CardName name="Earthcraft" nameJp="大地の知識" />
+  - <CardName name="Eladamri's Call" nameJp="エラダムリーの呼び声" />
+  - <CardName name="Enlightened Tutor" nameJp="悟りの教示者" />
+  - <CardName name="Entomb" nameJp="納墓" />
+  - <CardName name="Eternal Witness" nameJp="永遠の証人" />
+  - <CardName name="Fabricate" nameJp="加工" />
+  - <CardName name="Fastbond" />
+  - <CardName name="Flash" nameJp="閃光" />
+  - <CardName name="Gifts Ungiven" nameJp="けちな贈り物" />
+  - <CardName name="Glittering Wish" nameJp="きらめく願い" />
+  - <CardName name="Grim Tutor" nameJp="不気味な教示者" />
+  - <CardName name="Gush" nameJp="噴出" />
+  - <CardName name="Hermit Druid" nameJp="隠遁ドルイド" />
+  - <CardName name="Idyllic Tutor" nameJp="牧歌的な教示者" />
+  - <CardName name="Imperial Seal" nameJp="伝国の玉璽" />
+  - <CardName name="Insidious Dreams" nameJp="腹黒い夢" />
+  - <CardName name="Intuition" nameJp="直観" />
+  - <CardName name="Library of Alexandria" />
+  - <CardName name="Life from the Loam" nameJp="壌土からの生命" />
+  - <CardName name="Living Wish" nameJp="生ける願い" />
+  - <CardName name="Mana Crypt" nameJp="魔力の墓所" />
+  - <CardName name="Mana Drain" nameJp="マナ吸収" />
+  - <CardName name="Mana Vault" nameJp="魔力の櫃" />
+  - <CardName name="Memory Jar" nameJp="記憶の壺" />
+  - <CardName name="Merchant Scroll" nameJp="商人の巻物" />
+  - <CardName name="Mind Twist" nameJp="精神錯乱" />
+  - <CardName name="Mind's Desire" nameJp="精神の願望" />
+  - <CardName name="Mishra's Workshop" />
+  - <CardName name="Mox Emerald" />
+  - <CardName name="Mox Jet" />
+  - <CardName name="Mox Pearl" />
+  - <CardName name="Mox Ruby" />
+  - <CardName name="Mox Sapphire" />
+  - <CardName name="Mystical Teachings" nameJp="神秘の指導" />
+  - <CardName name="Mystical Tutor" nameJp="神秘の教示者" />
+  - <CardName name="Necropotence" nameJp="ネクロポーテンス" />
+  - <CardName name="Oath of Druids" nameJp="ドルイドの誓い" />
+  - <CardName name="Personal Tutor" nameJp="親身の教示者" />
+  - <CardName name="Regrowth" nameJp="新たな芽吹き" />
+  - <CardName name="Rishadan Port" nameJp="リシャーダの港" />
+  - <CardName name="Skullclamp" nameJp="頭蓋骨絞め" />
+  - <CardName name="Sol Ring" nameJp="太陽の指輪" />
+  - <CardName name="Steelshaper's Gift" nameJp="鋼打ちの贈り物" />
+  - <CardName name="Sterling Grove" nameJp="真の木立ち" />
+  - <CardName name="Strip Mine" nameJp="露天鉱床" />
+  - <CardName name="Summoner's Pact" nameJp="召喚士の契約" />
+  - <CardName name="Sundering Titan" nameJp="隔離するタイタン" />
+  - <CardName name="Supply // Demand" nameJp={["供給","需要"]} />
+  - <CardName name="Survival of the Fittest" nameJp="適者生存" />
+  - <CardName name="Sylvan Scrying" nameJp="森の占術" />
+  - <CardName name="Time Vault" />
+  - <CardName name="Time Walk" />
+  - <CardName name="Timetwister" />
+  - <CardName name="Tinker" nameJp="修繕" />
+  - <CardName name="Tolaria West" nameJp="トレイリア西部" />
+  - <CardName name="Transmute Artifact" />
+  - <CardName name="Treasure Cruise" nameJp="宝船の巡航" />
+  - <CardName name="Umezawa's Jitte" nameJp="梅澤の十手" />
+  - <CardName name="Vampiric Tutor" nameJp="吸血の教示者" />
+  - <CardName name="Wheel of Fortune" />
+  - <CardName name="Yawgmoth's Bargain" nameJp="ヨーグモスの取り引き" />
+  - <CardName name="Yawgmoth's Will" nameJp="ヨーグモスの意志" />
+</div>

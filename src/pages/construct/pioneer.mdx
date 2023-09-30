@@ -1,0 +1,90 @@
+---
+layout: ../../layouts/Layout.astro
+title: Pioneer
+titleJp: パイオニア
+---
+
+import CardName from '../../components/cardName.vue';
+import Card from '../../components/Card.astro';
+import OXCard from '../../components/OXCard.astro';
+import AreaIcon from '~icons/iconoir/area-search';
+import CardsIcon from '~icons/mdi/cards-outline';
+import PlusIcon from '~icons/mdi/card-plus-outline';
+import PeopleIcon from '~icons/ic/sharp-people-outline';
+import HeartIcon from '~icons/material-symbols/favorite-outline'
+import CircleIcon from '~icons/mdi/circle-outline';
+
+<div class="flex gap-2 m-2 flex-wrap justify-center">
+  <Card title="カードプール" class="flex-none basis-80 xl:basis-96">
+    <AreaIcon slot="img" />
+    ラヴニカへの回帰以降に発売された主流のセットのカード
+  </Card>
+  <Card title="デッキ枚数" class="flex-none basis-80 xl:basis-96">
+    <CardsIcon slot="img" />
+    60枚以上
+  </Card>
+  <Card title="サイドボード枚数" class="flex-none basis-80 xl:basis-96">
+    <PlusIcon slot="img" />
+    15枚以下
+  </Card>
+  <Card title="プレイ人数" class="flex-none basis-80 xl:basis-96">
+    <PeopleIcon slot="img" />
+    2名
+  </Card>
+  <Card title="開始ライフ" class="flex-none basis-80 xl:basis-96">
+    <HeartIcon slot="img" />
+    20点
+  </Card>
+  <OXCard title="プレイ可能環境" class="flex-none basis-80 xl:basis-96" list={[
+		{name:"Paper", value: true},
+		{name:"Magic Online", value: true},
+		{name:"Magic Arena", value: false}
+	]}>
+    <CircleIcon slot="img"/>
+  </OXCard>
+</div>
+
+## 概要
+
+スタンダードとモダンの中間に値する構築ルール。
+比較的安価にデッキを組むことができ、ローテーションがなく禁止にならない限りは使い続けることができる。
+認定大会もあり、競技性も維持されている。
+
+### 禁止カード (2023/09/14現在)
+
+<div class="two-column-list">
+  - <CardName name="Balustrade Spy" nameJp="欄干のスパイ" />
+  - <CardName name="Bloodstained Mire" nameJp="血染めのぬかるみ" />
+  - <CardName name="Expressive Iteration" nameJp="表現の反復" />
+  - <CardName name="Felidar Guardian" nameJp="守護フェリダー" />
+  - <CardName name="Field of the Dead" nameJp="死者の原野" />
+  - <CardName name="Flooded Strand" nameJp="溢れかえる岸辺" />
+  - <CardName name="Inverter of Truth" nameJp="真実を覆すもの" />
+  - <CardName name="Kethis, the Hidden Hand" nameJp="隠された手、ケシス" />
+  - <CardName name="Leyline of Abundance" nameJp="豊穣の力線" />
+  - <CardName name="Lurrus of the Dream-Den" nameJp="夢の巣のルールス" />
+  - <CardName name="Nexus of Fate" nameJp="運命のきずな" />
+  - <CardName name="Oko, Thief of Crowns" nameJp="王冠泥棒、オーコ" />
+  - <CardName name="Once Upon a Time" nameJp="むかしむかし" />
+  - <CardName name="Polluted Delta" nameJp="汚染された三角州" />
+  - <CardName name="Smuggler's Copter" nameJp="密輸人の回転翼機" />
+  - <CardName name="Teferi, Time Raveler" nameJp="時を解す者、テフェリー" />
+  - <CardName name="Undercity Informer" nameJp="地底街の密告人" />
+  - <CardName name="Underworld Breach" nameJp="死の国からの脱出" />
+  - <CardName name="Uro, Titan of Nature's Wrath" nameJp="自然の怒りのタイタン、ウーロ" />
+  - <CardName name="Veil of Summer" nameJp="夏の帳" />
+  - <CardName name="Walking Ballista" nameJp="歩行バリスタ" />
+  - <CardName name="Wilderness Reclamation" nameJp="荒野の再生" />
+  - <CardName name="Windswept Heath" nameJp="吹きさらしの荒野" />
+  - <CardName name="Winota, Joiner of Forces" nameJp="軍団のまとめ役、ウィノータ" />
+  - <CardName name="Wooded Foothills" nameJp="樹木茂る山麓" />
+</div>
+
+## 関連リンク
+
+- [公式サイト](https://mtg-jp.com/gameplay/format/pioneer.html)
+- [MTG Wiki](http://mtgwiki.com/wiki/%E3%83%91%E3%82%A4%E3%82%AA%E3%83%8B%E3%82%A2)
+
+## 関連フォーマット
+
+- [エクスプローラー](./explorer)

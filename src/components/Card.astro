@@ -1,0 +1,37 @@
+---
+interface Props {
+  title: string;
+  link?: string;
+  description?: string;
+  class?: string;
+}
+const { title, description, link, class: className } = Astro.props;
+const Header = link !== undefined ? 'a' : 'div';
+---
+
+<div class={(className || '') + ' rounded-xl divide-y shadow-md bg-gray-50 divide-slate-200 border border-stone-200'}>
+  <Header class={'text-center p-4 block no-underline' + (link !== undefined ? ' hover:bg-gray-200' : '')} href={link}>
+    {
+      Astro.slots.has('img') && (
+        <div class="h-12 text-5xl -mb-5 flex justify-center text-zinc-300 drop-shadow-sm z-0 relative opacity-60">
+          <slot name="img" />
+        </div>
+      )
+    }
+    <h2 class="font-sans font-normal not-italic z-10 relative text-3xl border-b-0 m-0">{title}</h2>
+    {description !== undefined && <div class="z-10 relative">{description}</div>}
+  </Header>
+  <div class="p-4 text-sm text-center card-text">
+    <slot />
+  </div>
+</div>
+
+<style lang="scss">
+  .img-container > :global(*) {
+    @apply h-12 grow-0 shrink-0 basis-0;
+  }
+
+  .card-text :global(p) {
+    text-indent: 0;
+  }
+</style>

@@ -1,0 +1,42 @@
+---
+import Card from './Card.astro';
+import Circle from '~icons/noto/hollow-red-circle';
+import Cross from '~icons/noto/cross-mark';
+import Triangle from '~icons/ri/triangle-line';
+interface Props {
+  title: string;
+  description?: string;
+  class?: string;
+  list: { name: string; value: boolean | 'triangle' }[];
+}
+const { title, description, class: className, list } = Astro.props;
+---
+
+<Card title={title} description={description} class={className}>
+  <slot name="img" slot="img" />
+  <div class="ox-list">
+    {
+      list.map((e) => (
+        <>
+          {e.value ? e.value === 'triangle' ? <Triangle class="text-red-500 drop-shadow-sm" /> : <Circle /> : <Cross />}
+          <div>{e.name}</div>
+        </>
+      ))
+    }
+  </div>
+</Card>
+
+<style lang="scss">
+  .ox-list {
+    display: grid;
+    grid-template-columns: 1em max-content;
+    column-gap: 0.5rem;
+    row-gap: 0.125rem;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .ox-list > svg {
+    height: 1em;
+  }
+</style>

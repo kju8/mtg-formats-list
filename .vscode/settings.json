@@ -1,0 +1,27 @@
+{
+  "editor.comments.insertSpace": true,
+  "editor.tabSize": 2,
+  "eslint.validate": [
+    "javascript",
+    "javascriptreact",
+    "astro", // Enable .astro
+    "typescript", // Enable .ts
+    "typescriptreact", // Enable .tsx
+    "mdx"
+  ],
+  "stylelint.validate": ["html", "vue", "svelte", "astro"],
+  "editor.formatOnSave": true,
+  "editor.defaultFormatter": "esbenp.prettier-vscode",
+  "prettier.documentSelectors": ["**/*.astro"],
+  "[markdown]": {
+    "editor.defaultFormatter": "unifiedjs.vscode-remark"
+  },
+  "[mdx]": {
+    "editor.defaultFormatter": "unifiedjs.vscode-remark"
+  },
+  "[astro]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "editor.insertSpaces": true,
+  "editor.detectIndentation": false
+}
