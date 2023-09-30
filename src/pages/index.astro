@@ -1,44 +1,46 @@
 ---
 import Layout from '../layouts/Layout.astro';
 import Card from '../components/Card.astro';
+
+const BaseURL = import.meta.env.BASE_URL;
 ---
 
 <Layout title="MTG Format List">
-  <h2><a href="./construct">構築フォーマット</a></h2>
+  <h2 id="construct"><a href="./construct">構築フォーマット</a></h2>
   <h3>認定フォーマット</h3>
   <div class="flex gap-2 m-2 flex-wrap justify-center">
-    <Card title="Standard" class="flex-none basis-80 xl:basis-96" link="./construct/standard">
+    <Card title="Standard" class="flex-none basis-80 xl:basis-96" link={BaseURL + '/construct/standard'}>
       最大3年間のカードが使用できる最もカードプールの狭い構築ルール
     </Card>
-    <Card title="Pioneer" class="flex-none basis-80 xl:basis-96" link="./construct/pioneer">
+    <Card title="Pioneer" class="flex-none basis-80 xl:basis-96" link={BaseURL + '/construct/pioneer'}>
       スタンダードとモダンの中間に値する、ローテーションがないながら安価である構築ルール
     </Card>
-    <Card title="Modern" class="flex-none basis-80 xl:basis-96" link="./construct/modern">
+    <Card title="Modern" class="flex-none basis-80 xl:basis-96" link={BaseURL + '/construct/modern'}>
       新枠が登場してからの約20年のカードが使用できる構築ルール
     </Card>
-    <Card title="Legacy" class="flex-none basis-80 xl:basis-96" link="./construct/legacy">
+    <Card title="Legacy" class="flex-none basis-80 xl:basis-96" link={BaseURL + '/construct/legacy'}>
       禁止カード以外の全期間のカードを使用できる構築ルール
     </Card>
-    <Card title="Vintage" class="flex-none basis-80 xl:basis-96" link="./construct/vintage">
+    <Card title="Vintage" class="flex-none basis-80 xl:basis-96" link={BaseURL + '/construct/vintage'}>
       全期間のカードを使用できる構築ルール<br />制限カードがある
     </Card>
   </div>
   <h3>Magic Online認定フォーマット</h3>
   <div class="flex gap-2 m-2 flex-wrap justify-center">
-    <Card title="Pauper" class="flex-none basis-80 xl:basis-96" link="./construct/pauper">
+    <Card title="Pauper" class="flex-none basis-80 xl:basis-96" link={BaseURL + '/construct/pauper'}>
       コモンのカードだけが使用できる安価なフォーマット
     </Card>
   </div>
   <h3>Magic Arena認定フォーマット</h3>
   <div class="flex gap-2 m-2 flex-wrap justify-center">
-    <Card title="Historic" class="flex-none basis-80 xl:basis-96" link="./construct/historic">
+    <Card title="Historic" class="flex-none basis-80 xl:basis-96" link={BaseURL + '/construct/historic'}>
       Magic Arenaに収録されている全カードが使用可能なフォーマット
     </Card>
-    <Card title="Alchemy" class="flex-none basis-80 xl:basis-96" link="./construct/alchemy">
+    <Card title="Alchemy" class="flex-none basis-80 xl:basis-96" link={BaseURL + '/construct/alchemy'}>
       Magic Arena向けカードの使用できるローテーションありフォーマット
     </Card>
-    <Card title="Explorer" class="flex-none basis-80 xl:basis-96" link="./construct/explorer">
-      Pioneer実装までのMagic Arena向けフォーマット
+    <Card title="Explorer" class="flex-none basis-80 xl:basis-96" link={BaseURL + '/construct/explorer'}>
+      Pioneer実装を目指すMagic Arena向けフォーマット
     </Card>
   </div>
 </Layout>
