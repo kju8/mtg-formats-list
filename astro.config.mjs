@@ -12,6 +12,9 @@ import remarkDeflist from 'remark-deflist';
 
 // https://astro.build/config
 export default defineConfig({
+  site: 'https://kju8.github.io',
+  base: '/mtg-formats-list',
+
   integrations: [ScryfallJsonDownload(), vue(), mdx(), tailwind({ applyBaseStyles: false })],
 
   vite: {
