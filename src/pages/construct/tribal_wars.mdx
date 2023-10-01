@@ -1,0 +1,92 @@
+---
+layout: ../../layouts/Layout.astro
+title: Tribal Wars
+---
+
+import CardName from '../../components/cardName.vue';
+import Card from '../../components/Card.astro';
+import OXCard from '../../components/OXCard.astro';
+import AreaIcon from '~icons/iconoir/area-search';
+import CardsIcon from '~icons/mdi/cards-outline';
+import PeopleIcon from '~icons/ic/sharp-people-outline';
+import HeartIcon from '~icons/material-symbols/favorite-outline'
+import CircleIcon from '~icons/mdi/circle-outline';
+
+<div class="flex gap-2 m-2 flex-wrap justify-center">
+  <Card title="カードプール" class="flex-none basis-80 xl:basis-96">
+    <AreaIcon slot="img" />
+    不問
+  </Card>
+  <Card title="デッキ枚数" class="flex-none basis-80 xl:basis-96">
+    <CardsIcon slot="img" />
+		60枚以上
+  </Card>
+  <Card title="プレイ人数" class="flex-none basis-80 xl:basis-96">
+    <PeopleIcon slot="img" />
+    2名
+  </Card>
+  <Card title="開始ライフ" class="flex-none basis-80 xl:basis-96">
+    <HeartIcon slot="img" />
+    20点
+  </Card>
+  <OXCard title="プレイ可能環境" class="flex-none basis-80 xl:basis-96" list={[
+		{name:"Paper", value: "triangle"},
+		{name:"Magic Online", value: "triangle"},
+		{name:"Magic Arena", value: false}
+	]}>
+    <CircleIcon slot="img"/>
+  </OXCard>
+</div>
+
+## 概要
+
+デッキの3分の1を共通のクリーチャー・タイプを持つクリーチャー・カードにしなければならない、
+部族デッキのみが許された構築ルール。
+
+以前は[スタンダード](/mtg-formats-list/construct/standard)のカードプールで遊ぶStandard Tribal Wars、
+(旧クラシックから移行した)[レガシー](/mtg-formats-list/construct/legacy)のカードプールで遊ぶ
+Legacy Tribal WarsがMOにて認定されていたが、どちらもサポートは終了している。
+
+### 禁止カード
+
+基本的には使用するカードプールの禁止カードをそのまま使用し、
+部族デッキに対するメタカードとなるカードのみを禁止していた。
+
+#### Legacy Tribal Warsでの禁止カード (2017年段階)
+
+- 当時のレガシー(クラシック)での禁止カード
+  <div class="two-column-list">
+    - <CardName name="Balance" nameJp="天秤" />
+    - <CardName name="Channel" nameJp="チャネル" />
+    - <CardName name="Demonic Consultation" />
+    - <CardName name="Demonic Tutor" nameJp="悪魔の教示者" />
+    - <CardName name="Fastbond" />
+    - <CardName name="Flash" nameJp="閃光" />
+    - <CardName name="Imperial Seal" nameJp="伝国の玉璽" />
+    - <CardName name="Library of Alexandria" />
+    - <CardName name="Mana Crypt" nameJp="魔力の墓所" />
+    - <CardName name="Mana Vault" nameJp="魔力の櫃" />
+    - <CardName name="Mishra's Workshop" />
+    - <CardName name="Necropotence" nameJp="ネクロポーテンス" />
+    - <CardName name="Skullclamp" nameJp="頭蓋骨絞め" />
+    - <CardName name="Sol Ring" nameJp="太陽の指輪" />
+    - <CardName name="Strip Mine" nameJp="露天鉱床" />
+    - <CardName name="Survival of the Fittest" nameJp="適者生存" />
+    - <CardName name="Time Vault" />
+    - <CardName name="Tinker" nameJp="修繕" />
+    - <CardName name="Tolarian Academy" nameJp="トレイリアのアカデミー" />
+    - <CardName name="Vampiric Tutor" nameJp="吸血の教示者" />
+    - <CardName name="Wheel of Fortune" />
+    - <CardName name="Yawgmoth's Bargain" nameJp="ヨーグモスの取り引き" />
+    - <CardName name="Yawgmoth's Will" nameJp="ヨーグモスの意志" />
+  </div>
+- <CardName name="Arboria" nameJp="アルボリア" />
+- <CardName name="Circle of Solace" nameJp="慰めの防御円" />
+- <CardName name="Engineered Plague" nameJp="仕組まれた疫病" />
+- <CardName name="Extinction" nameJp="絶滅" />
+- <CardName name="Moat" />
+- <CardName name="Peer Pressure" nameJp="周囲の圧力" />
+- <CardName name="Stasis" nameJp="停滞" />
+- <CardName name="The Abyss" />
+- <CardName name="Tsabo's Decree" nameJp="サーボの命令" />
+- <CardName name="Umezawa's Jitte" nameJp="梅澤の十手" />
