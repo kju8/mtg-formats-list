@@ -22,3 +22,6 @@ pnpm-debug.log*
 
 # raw data
 raw/
+
+# lock file
+package-lock.json

@@ -1,0 +1,75 @@
+---
+layout: ../../layouts/Layout.astro
+title: Historic Brawl
+titleJp: ヒストリック・ブロール
+---
+
+import CardName from '../../components/cardName.vue';
+import Card from '../../components/Card.astro';
+import OXCard from '../../components/OXCard.astro';
+import AreaIcon from '~icons/iconoir/area-search';
+import CrownIcon from '~icons/pepicons-pencil/crown'
+import CardsIcon from '~icons/mdi/cards-outline';
+import PeopleIcon from '~icons/ic/sharp-people-outline';
+import HeartIcon from '~icons/material-symbols/favorite-outline';
+import CircleIcon from '~icons/mdi/circle-outline';
+
+<div class="flex gap-2 m-2 flex-wrap justify-center">
+  <Card title="カードプール" class="flex-none basis-80 xl:basis-96">
+    <AreaIcon slot="img" />
+    [ヒストリック](/mtg-formats-list/construct/historic)
+  </Card>
+  <Card title="統率者" class="flex-none basis-80 xl:basis-96">
+    <CrownIcon slot="img" />
+    伝説のクリーチャーか伝説のプレインズウォーカー1枚
+  </Card>
+  <Card title="デッキ枚数" class="flex-none basis-80 xl:basis-96">
+    <CardsIcon slot="img" />
+    統率者含め100枚ちょうど
+  </Card>
+  <Card title="プレイ人数" class="flex-none basis-80 xl:basis-96">
+    <PeopleIcon slot="img" />
+    2名以上
+  </Card>
+  <Card title="開始ライフ" class="flex-none basis-80 xl:basis-96">
+    <HeartIcon slot="img" />
+    30点もしくは25点
+  </Card>
+  <OXCard title="プレイ可能環境" class="flex-none basis-80 xl:basis-96" list={[
+    {name:"Paper", value: false},
+    {name:"Magic Online", value: false},
+    {name:"Magic Arena", value: true}
+  ]}>
+    <CircleIcon slot="img"/>
+  </OXCard>
+</div>
+
+## 概要
+
+[ヒストリック](/mtg-formats-list/construct/historic)のカードプールで遊ぶ[ブロール](/mtg-formats-list/construct/brawl)。デッキ枚数も100枚に増えている。
+
+### 禁止カード (2023/09/14現在)
+
+- <CardName name="Agent of Treachery" nameJp="裏切りの工作員" />
+- <CardName name="Chalice of the Void" nameJp="虚空の杯" />
+- <CardName name="Channel" nameJp="チャネル" />
+- <CardName name="Demonic Tutor" nameJp="悪魔の教示者" />
+- <CardName name="Drannith Magistrate" nameJp="ドラニスの判事" />
+- <CardName name="Field of the Dead" nameJp="死者の原野" />
+- <CardName name="Gideon's Intervention" nameJp="ギデオンの介入" />
+- <CardName name="Lutri, the Spellchaser" nameJp="呪文追い、ルーツリー" />
+- <CardName name="Meddling Mage" nameJp="翻弄する魔道士" />
+- <CardName name="Natural Order" nameJp="自然の秩序" />
+- <CardName name="Nexus of Fate" nameJp="運命のきずな" />
+- <CardName name="Oko, Thief of Crowns" nameJp="王冠泥棒、オーコ" />
+- <CardName name="Phyrexian Revoker" nameJp="ファイレクシアの破棄者" />
+- <CardName name="Pithing Needle" nameJp="真髄の針" />
+- <CardName name="Runed Halo" nameJp="ルーンの光輪" />
+- <CardName name="Sorcerous Spyglass" nameJp="魔術遠眼鏡" />
+- <CardName name="Tainted Pact" nameJp="汚れた契約" />
+- <CardName name="Ugin, the Spirit Dragon" nameJp="精霊龍、ウギン" />
+
+## 関連フォーマット
+
+- [ヒストリック](/mtg-formats-list/construct/historic)
+- [ブロール](/mtg-formats-list/construct/brawl)
