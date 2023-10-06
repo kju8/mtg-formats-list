@@ -13,8 +13,17 @@
   h4,
   h5,
   h6 {
-    @apply font-serif text-neutral-900 my-2;
+    @apply relative font-serif text-neutral-900 my-2;
+
+    .link-icon {
+      @apply inline-block absolute -left-6 bottom-0 align-bottom text-sky-300 opacity-10 transition;
+    }
+
+    &:hover .link-icon {
+      @apply text-sky-500 opacity-100;
+    }
   }
+
   h1,
   h2,
   h3 {
