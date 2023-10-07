@@ -1,13 +1,15 @@
 ---
 import { Breadcrumbs } from 'astro-breadcrumbs';
+import HeadingList from './HeadingListSidebar.astro';
 import 'astro-breadcrumbs/breadcrumbs.css';
 import NavNext from '~icons/iconoir/nav-arrow-right';
 import NavHome from '~icons/material-symbols/home';
 interface Props {
-  title?: string;
+  title: string;
   titleJp?: string;
+  headings?: { depth: number; slug: string; text: string }[];
 }
-const { title, titleJp } = Astro.props;
+const { title, titleJp, headings } = Astro.props;
 const BaseURL = import.meta.env.BASE_URL;
 const customCrumbs = Astro.url.pathname
   .split('/')
@@ -24,26 +26,27 @@ const customCrumbs = Astro.url.pathname
 ---
 
 <body>
-  <div class="fixed header bg-zinc-800 py-4 px-4 text-slate-200 top-0 z-50 shadow-lg w-full h-24" role="navigation">
+  <div class="fixed header bg-zinc-800 py-4 px-4 top-0 z-50 shadow-lg w-full h-24" role="navigation">
     <Breadcrumbs crumbs={customCrumbs}>
       <NavHome slot="index" />
       <NavNext slot="separator" />
     </Breadcrumbs>
-    {
-      title !== undefined && (
-        <h1 class="border-none my-2 text-slate-200">
-          {title}
-          {titleJp !== undefined && <span class="font-normal text-lg">{' - ' + titleJp}</span>}
-        </h1>
-      )
-    }
+    <h1 class="border-none mb-2 text-slate-200">
+      {title}
+      {titleJp !== undefined && <span class="font-normal text-lg">{' - ' + titleJp}</span>}
+    </h1>
   </div>
+  {headings && <HeadingList headings={headings} />}
   <div class="container mx-auto mb-32 mt-24 pt-8">
     <slot />
   </div>
 </body>
 
 <style is:global>
+  .c-breadcrumbs {
+    @apply text-slate-300;
+  }
+
   .c-breadcrumbs li {
     text-transform: capitalize;
   }

@@ -5,6 +5,7 @@ import tailwind from '@astrojs/tailwind';
 import ScryfallJsonDownload from './src/integrations/scryfall-json-download';
 import Icons from 'unplugin-icons/vite';
 import remarkDeflist from 'remark-deflist';
+import { remarkHeadingId } from 'remark-custom-heading-id';
 import { rehypeHeadingIds } from '@astrojs/markdown-remark';
 import rehypeAutolinkHeadings from 'rehype-autolink-headings';
 import { fromHtmlIsomorphic } from 'hast-util-from-html-isomorphic';
@@ -50,7 +51,7 @@ export default defineConfig({
   },
   markdown: {
     // Applied to .md and .mdx files
-    remarkPlugins: [remarkDeflist],
+    remarkPlugins: [remarkDeflist, remarkHeadingId],
     rehypePlugins: [
       rehypeHeadingIds,
       [

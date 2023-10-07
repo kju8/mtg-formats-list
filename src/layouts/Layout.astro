@@ -1,13 +1,19 @@
 ---
+import type { MarkdownLayoutProps } from 'astro';
 import Header from './Header.astro';
 import BodyLayout from './BodyLayout.astro';
 import '../style/base.css';
 import 'mana-font/css/mana.css';
-const { title, titleJp } = Astro.props.frontmatter || Astro.props;
+type Props = MarkdownLayoutProps<{
+  // Define frontmatter props here
+  title: string;
+  titleJp?: string;
+}>;
+const { frontmatter, headings } = Astro.props;
 ---
 
 <!doctype html>
 <html lang="ja">
-  <Header title={title} />
-  <BodyLayout title={title} titleJp={titleJp}><slot /></BodyLayout>
+  <Header title={frontmatter.title} />
+  <BodyLayout title={frontmatter.title} titleJp={frontmatter.titleJp} headings={headings}><slot /></BodyLayout>
 </html>

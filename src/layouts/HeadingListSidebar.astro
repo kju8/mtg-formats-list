@@ -1,0 +1,35 @@
+---
+import MenuOpen from '~icons/material-symbols/right-panel-open-outline-rounded';
+import MenuClose from '~icons/material-symbols/right-panel-close-outline-rounded';
+import BottomIcon from '~icons/cil/chevron-bottom';
+interface Props {
+  headings: { depth: number; slug: string; text: string }[];
+}
+const { headings } = Astro.props;
+---
+
+<div id="right-sidebar" class="sidebar-close">
+  <div id="right-sidebar-icon">
+    <MenuOpen id="open-icon" />
+    <MenuClose id="close-icon" />
+  </div>
+  <div id="right-sidebar-list" class="w-80">
+    {
+      headings.map((item, i, arr) => (
+        <a href={`#${item.slug}`} class={`headlink-${item.depth}`}>
+          {i + 1 < arr.length && arr[i].depth < arr[i + 1].depth && <BottomIcon class="parent-icon" />}
+          {item.text}
+        </a>
+      ))
+    }
+  </div>
+</div>
+
+<script>
+  const sidebar = document.querySelector('#right-sidebar');
+  const icon = document.querySelector('#right-sidebar-icon');
+
+  icon?.addEventListener('click', () => {
+    sidebar?.classList.toggle('open');
+  });
+</script>

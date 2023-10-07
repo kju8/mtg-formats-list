@@ -13,6 +13,12 @@ module.exports = {
       fontFamily: {
         sans: ['Noto Sans JP', ...defaultTheme.fontFamily.sans],
         serif: ['Noto Serif JP', ...defaultTheme.fontFamily.serif]
+      },
+      spacing: {
+        88: '22rem'
+      },
+      transitionProperty: {
+        position: ['top', 'bottom', 'left', 'right']
       }
     }
   },

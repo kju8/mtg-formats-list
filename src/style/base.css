@@ -3,11 +3,18 @@
 @tailwind utilities;
 
 @layer base {
+  :root {
+    @apply scroll-pt-24 scroll-smooth;
+  }
+
   body {
     @apply font-sans font-normal text-neutral-800 bg-zinc-50;
   }
 
-  h1,
+  h1 {
+    @apply font-serif text-neutral-900 italic font-bold;
+  }
+
   h2,
   h3,
   h4,
@@ -24,7 +31,6 @@
     }
   }
 
-  h1,
   h2,
   h3 {
     @apply italic border-b border-stone-300 font-bold mt-4;
@@ -56,5 +62,54 @@
 
   .ms {
     text-indent: 0;
+  }
+
+  #right-sidebar {
+    @apply fixed top-24 -right-80 bottom-0 z-20 w-96 shadow-lg opacity-90 transition-position;
+  }
+
+  #right-sidebar.open {
+    @apply right-0;
+  }
+
+  #right-sidebar-icon {
+    @apply absolute w-16 top-0 left-0 bottom-0 bg-slate-200 text-xl text-gray-500;
+  }
+
+  #right-sidebar-icon > * {
+    @apply absolute top-0 w-12 h-12 m-2 opacity-100 transition-opacity;
+  }
+
+  #right-sidebar:not(.open) #close-icon,
+  #right-sidebar.open #open-icon {
+    @apply opacity-0;
+  }
+
+  #right-sidebar-list {
+    @apply absolute w-80 top-0 right-0 bottom-0 bg-slate-50 overflow-y-auto;
+  }
+
+  #right-sidebar-list > a {
+    @apply relative block text-lg text-ellipsis overflow-hidden w-full whitespace-nowrap m-1 no-underline pr-6;
+
+    &.headlink-2 {
+      @apply pl-4;
+    }
+
+    &.headlink-3 {
+      @apply pl-8;
+    }
+
+    &.headlink-4 {
+      @apply pl-12;
+    }
+
+    &.headlink-5 {
+      @apply pl-16;
+    }
+  }
+
+  #right-sidebar-list > a > .parent-icon {
+    @apply absolute -left-1 ml-1 pl-0.5 top-1.5 w-4 h-4;
   }
 }
