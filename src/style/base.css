@@ -65,24 +65,35 @@
   }
 
   #right-sidebar {
-    @apply fixed top-24 -right-80 bottom-0 z-20 w-96 shadow-lg opacity-90 transition-position;
+    @apply fixed top-24 -right-80 bottom-0 z-20 w-96 shadow-lg opacity-40 transition-position transition-opacity;
+
+    &:hover {
+      @apply opacity-80;
+    }
   }
 
   #right-sidebar.open {
-    @apply right-0;
+    @apply right-0 opacity-90;
   }
 
   #right-sidebar-icon {
     @apply absolute w-16 top-0 left-0 bottom-0 bg-slate-200 text-xl text-gray-500;
-  }
 
-  #right-sidebar-icon > * {
-    @apply absolute top-0 w-12 h-12 m-2 opacity-100 transition-opacity;
+    #close-icon,
+    #open-icon {
+      @apply absolute top-0 w-12 h-12 m-2 opacity-100 transition-opacity;
+    }
   }
 
   #right-sidebar:not(.open) #close-icon,
   #right-sidebar.open #open-icon {
     @apply opacity-0;
+  }
+
+  #right-sidebar-title {
+    @apply absolute text-3xl font-bold top-16 left-3;
+    writing-mode: vertical-rl;
+    text-orientation: upright;
   }
 
   #right-sidebar-list {
